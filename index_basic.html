@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue basic page</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+</head>
+<body>
+    <div id="app">
+    {{person.name}} <br>
+    {{person.age}} <br>
+    {{nextYear('Hello')}} <br>
+
+    <input :type = "type" :value = "inputData"> <br>
+    <a :href = "link" target = "_blank">구글검색</a> <br>
+    <a :href = "getChannelLink('watch?v=ePVF4CsQSjk')" target = "_blank">무야호</a>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+            person:{
+            name : 'yyhs',
+            age : 34
+            },
+            inputData:'hello',
+            type: 'text',
+            link: 'https://www.google.co.kr',
+            clink: 'https://www.youtube.com/'
+        },
+            methods: {
+                nextYear: function(greeting) {
+                    return greeting + '!'+ this.person.name + '는 내년에'
+                + (this.person.age+1) + '살 입니다.';
+                },
+                getChannelLink(channel){
+                    return this.clink + channel;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

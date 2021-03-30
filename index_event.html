@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <button onclick = "alert('한다원 사랑해!')">Click Me</button> -->
+        <!-- <button v-on:click = "myAlert()">Click Me</button> -->
+        <button @click = "myAlert()">Click Me</button> <br>
+        {{year}} <br>
+        <button @click = "plus()">증가</button>
+        <button @click = "minus()">감소</button>
+
+        <form v-on:submit.prevent="submit">
+            <input type = "text"><br>
+            <button type = "submit">제출</button>
+        </form>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+              year: 2021
+
+            },
+            methods: {
+                myAlert(){
+                    alert('한다원 사랑해!') 
+                },
+                plus(){
+                    this.year++;
+                },
+                minus(){
+                    this.year--;
+                },
+                submit(){
+                    alert('submitted');
+                    console.log('한다원 사랑해!ㅠㅠ');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
